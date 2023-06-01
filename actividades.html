@@ -8,19 +8,19 @@
 
 <body>
     <header>
-        <h1>Estudiantes</h1>
+        <h1>Actividades</h1>
     </header>
     <main>
         <section>
-            <button id="registrar">Registrar estudiante</button>
+            <button id="registrar">Registrar actividad</button>
         </section>
         <section>
-            <table id="estudiantesTb">
+            <table id="actividadesTb">
                 <thead>
                     <tr>
-                        <th>Código</th>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
+                        <th>ID</th>
+                        <th>Descripción</th>
+                        <th>Nota</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -31,12 +31,12 @@
         </section>
         <section>
             <h2 id="tituloModal">Crear/Modificar</h2>
-            <form id="formEstudiante" name="formularioEstudiante">
+            <form id="formActividad" name="formularioActividad">
                 <label>
-                    <span>Nombres:</span>
-                    <input id="nombres" type="text" name="nombres" maxlength="250" required>
-                    <span>Apellidos:</span>
-                    <input id="apellidos" type="text" name="apellidos" maxlength="250" required>
+                    <span>Descripción:</span>
+                    <input id="descripcion" type="text" name="descripcion" maxlength="500" required>
+                    <span>Nota:</span>
+                    <input id="nota" type="text" name="nota" required>
                 </label>
                 <section>
                     <button id="guardar" type="button">Guardar</button>
@@ -48,9 +48,11 @@
         <p>Programación avanzada</p>
         <br>
         <p>2023</p>
+        <br>
+        <a href="estudiantes.html">Inicio</a>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="js/estudiantes.js"></script>
+    <script src="js/actividades.js"></script>
 </body>
 
 </html>
