@@ -7,7 +7,7 @@ $(document).ready(function () {
 function mostrarEstudiantes() {
     $.ajax({
         method: 'get',
-        url: 'http://localhost:8000/estudiantes'
+        url: 'http://localhost:8000/verEstudiantes'
     }).done((response) => {
         const dataJson = JSON.parse(response);
         const estudiantes = dataJson.data;
@@ -45,6 +45,7 @@ document.getElementById('registrar').addEventListener('click', () => {
 
 document.getElementById('guardar').addEventListener('click', () => {
     let formulario = document.forms['formularioEstudiante'];
+    let codigo = formulario['codigo'].value;
     let nombres = formulario['nombres'].value;
     let apellidos = formulario['apellidos'].value;
 
@@ -59,6 +60,7 @@ document.getElementById('guardar').addEventListener('click', () => {
             url: 'http://localhost:8000/crearEstudiantes',
             method: 'post',
             data: {
+                codigo: codigo,
                 nombres: nombres,
                 apellidos: apellidos
             }
