@@ -56,7 +56,7 @@ document.getElementById('guardar').addEventListener('click', () => {
     if (indexEstudiante == -1) {
         // CREAR
         $.ajax({
-            url: 'http://localhost:8000/estudiantes',
+            url: 'http://localhost:8000/crearEstudiantes',
             method: 'post',
             data: {
                 nombres: nombres,
@@ -81,7 +81,7 @@ document.getElementById('guardar').addEventListener('click', () => {
         }
 
         $.ajax({
-            url: 'http://localhost:8000/estudiantes/' + codigo,
+            url: 'http://localhost:8000/modificarEstudiantes/' + codigo,
             method: 'put',
             data: {
                 nombres: nombresModificar,
@@ -106,7 +106,7 @@ let modificar = function (estudianteCodigo) {
 //ELIMINAR
 let eliminar = function (codigo) {
     $.ajax({
-        url: 'http://localhost:8000/estudiantes/' + codigo,
+        url: 'http://localhost:8000/eliminarEstudiantes/' + codigo,
         method: 'delete',
     }).done(response => {
         const dataJson = JSON.parse(response);

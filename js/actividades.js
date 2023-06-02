@@ -53,7 +53,7 @@ document.getElementById('guardar').addEventListener('click', () => {
     if (indexActividad == -1) {
         // CREAR
         $.ajax({
-            url: 'http://localhost:8000/actividades',
+            url: 'http://localhost:8000/crearActividades',
             method: 'post',
             data: {
                 descripcion: descripcion,
@@ -78,7 +78,7 @@ document.getElementById('guardar').addEventListener('click', () => {
         }
 
         $.ajax({
-            url: 'http://localhost:8000/actividades/' + id,
+            url: 'http://localhost:8000/modificarActividades/' + id,
             method: 'put',
             data: {
                 descripcion: descripcionModificar,
@@ -103,7 +103,7 @@ let modificar = function (actividadId) {
 //ELIMINAR
 let eliminar = function (id) {
     $.ajax({
-        url: 'http://localhost:8000/actividades/' + id,
+        url: 'http://localhost:8000/eliminarActividades/' + id,
         method: 'delete',
     }).done(response => {
         const dataJson = JSON.parse(response);
