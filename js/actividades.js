@@ -44,8 +44,9 @@ document.getElementById('guardar').addEventListener('click', () => {
     let formulario = document.forms['formularioActividad'];
     let descripcion = formulario['descripcion'].value;
     let nota = formulario['nota'].value;
+    let codigoEstudiante = formulario['codigoEstudiante'].value;
 
-    if (descripcion === "" || nota === "") {
+    if (descripcion === "" || nota === "" || codigoEstudiante === "") {
         alert("Por favor, complete todos los campos.");
         return;
     }
@@ -57,7 +58,8 @@ document.getElementById('guardar').addEventListener('click', () => {
             method: 'post',
             data: {
                 descripcion: descripcion,
-                nota: nota
+                nota: nota,
+                codigoEstudiante: codigoEstudiante
             }
         }).done(response => {
             const dataJson = JSON.parse(response);
