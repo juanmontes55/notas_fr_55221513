@@ -14,6 +14,7 @@ function mostrarActividades() {
         const table = document.getElementById('actividadesTb');
         const tbody = table.getElementsByTagName('tbody')[0];
         let html = '';
+        let notas = [];
 
         actividades.forEach(actividad => {
             html += '<tr>';
@@ -27,13 +28,25 @@ function mostrarActividades() {
             html += '      <button onclick="eliminar(' + actividad.id + ')">Eliminar</button>';
             html += '   </td>';
             html += '</tr>';
+
+            notas.push(parseFloat(actividad.nota));
         });
+
+        const totalNotas = notas.reduce((sum, nota) => sum + nota, 0);
+        const promedio = totalNotas / notas.length;
+
+        html += '<tr>';
+        html += '   <td colspan="2">Promedio de notas:</td>';
+        html += '   <td>' + promedio.toFixed(2) + '</td>';
+        html += '   <td colspan="2">' + (promedio > 3 ? 'Aprobó' : 'Reprobó') + '</td>';
+        html += '</tr>';
 
         tbody.innerHTML = html;
     }).fail((error) => {
         console.error(error);
     });
 }
+
 
 document.getElementById('registrar').addEventListener('click', () => {
     indexActividad = -1;
